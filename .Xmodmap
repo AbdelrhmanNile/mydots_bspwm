@@ -1,0 +1,10 @@
+! free up right-Alt for remapping
+remove mod1 = Alt_R
+
+! Right-Alt remapped to Super
+clear mod4
+keycode 108 = Super_R
+add mod4 = Super_R
+
+xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"  ! this will make Esc to act as Caps Lock
+xmodmap -e "keycode 66 = Escape NoSymbol Escape"       ! this will make Caps Lock to act as Esc
