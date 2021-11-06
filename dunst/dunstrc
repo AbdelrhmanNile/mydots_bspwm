@@ -1,11 +1,10 @@
 # Frenzy's Dunst
+# changed colors to the onedark color palette by: PIRATE
 
-#[colors]
-    #foreground = "#8791a3"
 
 [global]
     ### Display ###
-		
+
     # Which monitor should the notifications be displayed on.
     monitor = 0
     follow = keyboard
@@ -47,7 +46,7 @@
     sort = yes
     idle_threshold = 120
 
-    # Text 
+    # Text
     font = Cartograph CF 13
     line_height = 1
 
@@ -101,24 +100,24 @@
     history = ctrl+grave
 
 [urgency_low]
-    background = "#1b1b23"
-    frame_color = "#caf6bb"
+    background = "#282c34"
+    frame_color = "#98c379"
     icon = "~/.config/dunst/icons/low.svg"
-    foreground="#8791a3"
+    foreground="#abb2bf"
     timeout = 3
 
 [urgency_normal]
-    background = "#1b1b23"
-    frame_color = "#2c2e3e"
+    background = "#282c34"
+    frame_color = "#61afef"
     timeout = 5
-    foreground="#8791a3"
+    foreground="#abb2bf"
 
 [urgency_critical]
-    background = "#1b1b23"
-    frame_color = "#ebb9b9"
+    background = "#282c34"
+    frame_color = "#e06c75"
     icon = "~/.config/dunst/icons/critical.svg"
     timeout = 0
-    foreground="#8791a3"
+    foreground="#abb2bf"
 # vim: ft=conf
 
 [play_sound]
