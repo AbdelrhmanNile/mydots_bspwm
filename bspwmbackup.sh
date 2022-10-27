@@ -31,3 +31,13 @@ cp ~/.Xmodmap ~/mydots
 cp ~/.Xresources ~/mydots
   #backupscript
 cp ~/bspwmbackup.sh ~/mydots
+
+cp -r ~/.config/alacritty ~/mydots/alacritty
+
+cp -r ~/.config/kitty ~/mydots/kitty
+
+cp -r ~/.config/gtk-2.0 ~/mydots/gtk-2.0
+cp -r ~/.config/gtk-3.0 ~/mydots/gtk-3.0
+
+cp -r ~/.config/Thunar ~/mydots/Thunar
+cp -r ~/.config/xfce4 ~/mydots/xfce4

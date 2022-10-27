@@ -1,0 +1,12 @@
+{
+	"dates": {
+		"joinedAtDate": {}
+	},
+	"general": {
+		"displayText": true
+	},
+	"places": {
+		"userPopout": true,
+		"userProfile": true
+	}
+}

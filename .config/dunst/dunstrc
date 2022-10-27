@@ -1,7 +1,8 @@
 # Frenzy's Dunst
-#
-# changed colors to the onedark color palette and added notifications sound by: PIRATE
+# changed colors to the onedark color palette by: PIRATE
 
+#[colors]
+    #foreground = "#8791a3"
 
 [global]
     ### Display ###

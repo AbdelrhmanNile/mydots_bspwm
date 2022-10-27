@@ -58,11 +58,41 @@ offset-x = 1%
 offset-y = 0.5%
 fixed-center = true
 line-size = 3
+wm-restack = bspwm
+
+modules-left = powermenu round-left bspwm round-right 
+modules-center = 
+modules-right =   temperature   alsa battery round-left cpu freq round-right  mem xbacklight network networklan round-left time round-right   
+
+font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
+font-1 = JetBrainsMono Nerd Font:size=18;5
+font-2 = Material Design Icons:style=Bold:size=13;3
+font-3 = unifont:fontformat=truetype:size=13:antialias=true;
+
+[bar/bottom]
+tray-position = right
+tray-padding =5
+monitor = DP3
+width =  98%
+height = 26
+padding-left =1
+padding-right =0
+background = ${colors.background}
+foreground = ${colors.foreground}
+bottom = true
+border-top-size = 7
+border-bottom-size = 7
+border-top-color = ${colors.background}
+border-bottom-color = ${colors.background}
+offset-x = 1%
+offset-y = 0.5%
+fixed-center = true
+line-size = 3
 
 wm-restack = bspwm
 
 modules-left = powermenu round-left bspwm round-right 
-modules-center =  
+modules-center = 
 modules-right =      temperature   alsa battery round-left cpu round-right  mem xbacklight round-left time round-right   
 
 font-0 = JetBrainsMono Nerd Font:style=Bold:pixelsize=13;3
@@ -112,7 +142,7 @@ ws-icon-1 = 2;%{F#ff9b93}
 ws-icon-2 = 3;%{F#95e1d3}    
 ws-icon-3 = 4;%{F#81A1C1} 
 ws-icon-4 = 5;%{F#A3BE8C} 
-ws-icon-5 = 6;%{F#F9DE8F}ﭮ  
+ws-icon-5 = 6;%{F#F9DE8F}ﭮ 
  
 label-separator = ""
 label-separator-background = #2b2f37
@@ -142,7 +172,7 @@ label-urgent-padding = 1
 [module/alsa]
 type = internal/alsa
 format-volume = <label-volume> <bar-volume>
-label-volume = " "  
+label-volume = ""  
 label-volume-foreground = ${colors.foreground}
 
 format-muted-foreground = ${colors.foreground}
@@ -171,6 +201,10 @@ bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground}
 format-volume-padding = 1
 
+[module/pulseaudio-control-output]
+type = custom/script
+tail = true
+
 [module/time]
 type = internal/date
 interval = 60
@@ -186,7 +220,7 @@ label = %date%%time%
 type = custom/script
 exec = free -m | sed -n 's/^Mem:\s\+[0-9]\+\s\+\([0-9]\+\)\s.\+/\1/p'
 format = <label>
-format-prefix = " ﬙ " 
+format-prefix = " ﬙" 
 label = %output% MB
 label-padding = 1
 format-prefix-foreground = #d19a66
@@ -265,7 +299,7 @@ label-padding = 1
 [module/xbacklight]
 type = internal/xbacklight
 format = <label>
-format-prefix = "  "
+format-prefix = " "
 label = %percentage%
 format-prefix-foreground = #61afef
 label-foreground =   #D8DEE9
@@ -274,18 +308,100 @@ format-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 2.5
-
+exec = cpufreq
 format-prefix = "  " 
 format = <label> 
 
-label = CPU %percentage%%
+label = CPU %percentage%% @ 
 
 format-background = #2b2f37
 format-foreground = #989cff
 
+[module/freq]
+type = custom/script
+interval = 2.5
+exec = cpufreq
+format = <label>
+label = %output% MHz
+format-background = #2b2f37
+format-foreground = #989cff
+format-padding = 1
+
+
+
+
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...
+label = "       | %title% |"
 
 
+[module/mpd]
+type = internal/mpd
 
+; Host where mpd is running (either ip or domain name)
+; Can also be the full path to a unix socket where mpd is running.
+host = 127.0.0.1
+port = 6600
+password = mysecretpassword
+
+; Seconds to sleep between progressbar/song timer sync
+; Default: 1
+interval = 2
+
+[module/network]
+type = internal/network
+interface = wlp2s0 
+interval = 1.0
+label-connected = "  %downspeed%   %upspeed%  "
+
+
+[module/networklan]
+type = internal/network
+interface = enp0s31f6 
+interval = 1.0
+label-connected = "  %downspeed%   %upspeed%  "
+
+
+;;;;;;;;;;
+;; WIFI ;;
+;;;;;;;;;;
+[module/wireless-network]
+type = internal/network
+interface = wlo1
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+; Default: %ifname% %local_ip%
+;label-connected = %essid% %downspeed:9%
+;label-connected-foreground = #eefafafa
+
+;format-connected = "<ramp-signal> <label-connected>"
+format-connected = "  <label-connected> "
+format-packetloss = <animation-packetloss>
+label-connected = %signal%% %upspeed:2% %downspeed:2%
+;label-connected = %signal%%
+
+ramp-signal-0 = 
+ramp-signal-0-foreground = #F03051
+ramp-signal-1 = 
+ramp-signal-1-foreground = #F07127
+ramp-signal-2 = 
+ramp-signal-2-foreground = #F9CE56
+ramp-signal-3 = 
+ramp-signal-3-foreground = ${colors.purple}
+ramp-signal-4 = 
+ramp-signal-4-foreground = ${colors.purple}
+ramp-signal-5 = 
+ramp-signal-5-foreground = ${colors.purple}
+
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 
+animation-packetloss-1-foreground = #000000
+animation-packetloss-framerate = 500

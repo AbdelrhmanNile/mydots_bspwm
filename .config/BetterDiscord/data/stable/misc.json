@@ -1,0 +1,9 @@
+{
+    "version": "1.3.0",
+    "emoteVersion": "v1.3.0",
+    "drawerStates": {
+        "settings": {
+            "window": true
+        }
+    }
+}

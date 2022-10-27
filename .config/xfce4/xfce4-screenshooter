@@ -1,0 +1,14 @@
+delay=0
+region=3
+action=1
+show_mouse=0
+title=ArcoLinux
+timestamp=TRUE
+app=gimp-2.10
+last_user=
+last_extension=png
+screenshot_dir=file:/home/pirate/Desktop
+enable_imgur_upload=true
+show_border=1
+show_in_folder=false
+

@@ -54,25 +54,20 @@ super + F11
 super + d
     rofi -show drun
 
+#bitwarden
+super + z
+    bwmenu -c 30 --auto-lock 0
+
 #################################################################
 # SUPER + ... KEYS
 #################################################################
-
-#Atom
-#super + e
- #   atom
-
 #Browser
 super + b
-    brave
+    librewolf
 
 #Conky-toggle
 super + c
     conky-toggle
-
-#Htop
-#super + h
- #   st -n htop -e htop
 
 #Ranger
 super + r
@@ -92,23 +87,23 @@ super + alt + r
 
 #arcolinux-logout
 super + x
-    arcolinux-logout
+    archlinux-logout
 
 #Rofi theme selector
-super + `
-    rofi-theme-selector
+#super + `
+#    rofi-theme-selector
 
 #st
 super + t
-    st
+    alacritty
 
 #Pavucontrol
 super + v
     pavucontrol
 
 #Pragha
-super + m
-    pragha
+#super + m
+#    pragha
 
 #st
 super + Return
@@ -345,7 +340,7 @@ ctrl + shift + Print
 
 #xfce4-terminal dropdown
 F12
-    xfce4-terminal --drop-down
+    skynix-cli run
 
 
 #################################################################
@@ -545,7 +540,7 @@ super + ctrl + {_,shift +}{1-9}
 alt + Tab
 	bspc desktop -f '^{1-9,10}'
 
-	#Focus selected desktop
+#Focus selected desktop
 alt + shift + Tab
 	bspc desktop -f '^{1-9,10}'
 
@@ -651,3 +646,15 @@ super + shift + m
 
 super + shift + c
   sh ~/.scripts/notification/screenshot.sh -s save -m full
+
+super + shift + w
+  wch
+
+super + m
+  urxvt -n music -e ncmpcpp-ueberzug &
+
+super + w
+    sh /home/pirate/.config/rofi/launchers/colorful/launcher.sh &
+
+super + shift + i
+    winhide

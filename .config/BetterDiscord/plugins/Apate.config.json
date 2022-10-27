@@ -1,0 +1,34 @@
+{
+    "currentVersionInfo": {
+        "version": "1.4.8",
+        "hasShownChangelog": true
+    },
+    "settings": {
+        "encryption": 1,
+        "ctrlToSend": true,
+        "animate": true,
+        "displayImage": true,
+        "displayLock": true,
+        "password": "",
+        "passwords": [
+            ""
+        ],
+        "passwordColorTable": [
+            "white"
+        ],
+        "showLoading": true,
+        "showInfo": true,
+        "saveCurrentPassword": false,
+        "showChoosePasswordConfirm": true,
+        "hiddenAboutMe": false,
+        "hiddenAboutMeText": "",
+        "keyPosition": 0,
+        "shiftNoEncryption": true,
+        "altChoosePassword": true,
+        "privKey": "N2xpSPJfPlAqS6Ila4EK2O9PWLnk3M",
+        "pubKey": "iUUP6+BFV8iyF8Rgy9HZ0HUzxZlFUeWjcc1bIYshYxRzzeYhSTlY+Cj5mggnMugx5EX09R/RE3kirYfJR+wYdIu2Pr1YA0RPs7qvMIqi3MyUl7pDEmLwWVnrGwCA/3IEsTjcImBxcD3br2shuPA4d6Lb65kz+/sW1MwrzsshQ7s=",
+        "strongChannelIndex": [],
+        "pendingList": [],
+        "devMode": false
+    }
+}

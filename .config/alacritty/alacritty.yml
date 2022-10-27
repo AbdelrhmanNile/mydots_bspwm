@@ -2,7 +2,7 @@ colors:
   # Default colors
   primary:
     background: '0x1e222a'
-    foreground: '0xabb2bf'
+    foreground: '0xc8ccd4'
 
     # Bright and dim foreground colors
     #
@@ -25,11 +25,11 @@ colors:
     black:   '0x1e2127'
     red:     '0xe06c75'
     green:   '0x98c379'
-    yellow:  '0xd19a66'
+    yellow:  '0xe5c07b'
     blue:    '0x61afef'
     magenta: '0xc678dd'
     cyan:    '0x56b6c2'
-    white:   '0x828791'
+    white:   '0xb6bdca'
 
   # Bright colors
   bright:
@@ -63,7 +63,13 @@ colors:
   #indexed_colors:
   #  - { index: 16, color: '0x000000' }
 font:
+  size: 15.0
   normal:
     family: JetBrainsMono Nerd Font Mono
-    style: Bold
-    size: 100.0
+    style: medium
+  bold:
+    family: JetBrainsMono Nerd Font Mono
+    style: bold
+  italic:
+    family: JetBrainsMono Nerd Font Mono
+    style: italic

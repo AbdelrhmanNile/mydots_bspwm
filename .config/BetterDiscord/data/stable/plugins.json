@@ -1,0 +1,19 @@
+{
+    "PluginRepo": true,
+    "BDFDB": true,
+    "ThemeRepo": true,
+    "       BetterMediaPlayer": true,
+    "CopyRawMessage": true,
+    "DiscordActivities": true,
+    "ZeresPluginLibrary": true,
+    "BetterMediaPlayer": true,
+    "NitroPerks": true,
+    "MessageUtilities": true,
+    "FriendNotifications": true,
+    "JoinedAtDate": true,
+    "serverthemes": false,
+    "Apate": false,
+    "BetterCodeblocks": true,
+    "HideChannels": true,
+    "BDContextMenu": true
+}

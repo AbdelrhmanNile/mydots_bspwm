@@ -7,6 +7,14 @@
 #installation via paru -S oh-my-zsh-git
 export ZSH=/usr/share/oh-my-zsh/
 
+export JDTLS_HOME=/home/pirate/.local/share/nvim/lsp_servers/jdtls
+export WORKSPACE=/home/pirate/workspace
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+export AWT_TOOLKIT=MToolkit
+export CHROME_EXECUTABLE=brave
+
+export BW_SESSION="RY/oGLspEXlR4pzznCc5nkt223Kbg9ST0Le/BIHC1wOzxAuKUfDYaJs3NRGDrusyTkPquP+WMsbrJ5yoxqkP0g=="
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -98,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 ####   ARCOLINUX SETTINGS   ####
-
+export PAGER='most'
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -114,8 +122,8 @@ export HISTCONTROL=ignoreboth:erasedups
 
 # Make nano the default editor
 
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR='lvim'
+export VISUAL='lvim'
 
 #PS1='[\u@\h \W]\$ '
 
@@ -127,22 +135,24 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
+### ALIASES ###
+
 #list
 alias ls='ls --color=auto'
 alias la='ls -a'
-alias ll='ls -la'
+alias ll='ls -alFh'
 alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 
 #fix obvious typo's
 alias cd..='cd ..'
-alias pdw="pwd"
+alias pdw='pwd'
 alias udpate='sudo pacman -Syyu'
 alias upate='sudo pacman -Syyu'
 alias updte='sudo pacman -Syyu'
 alias updqte='sudo pacman -Syyu'
-alias upqll="paru -Syu --noconfirm"
-alias upal="paru -Syu --noconfirm"
+alias upqll='paru -Syu --noconfirm'
+alias upal='paru -Syu --noconfirm'
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
@@ -151,6 +161,10 @@ alias fgrep='fgrep --color=auto'
 
 #readable output
 alias df='df -h'
+
+#keyboard
+alias give-me-azerty-be="sudo localectl set-x11-keymap be"
+alias give-me-qwerty-us="sudo localectl set-x11-keymap us"
 
 #pacman unlock
 alias unlock="sudo rm /var/lib/pacman/db.lck"
@@ -190,7 +204,7 @@ alias auru="paru -Syua"
 alias aurs="paru -Ss"
 
 # Alias for NeoVim
-alias vi="nvim"
+alias vi="lvim"
 
 #alias for clear
 alias c="clear"
@@ -199,12 +213,16 @@ alias c="clear"
 alias py="python"
 
 #aliases for wm confs
-alias vibsp="nvim ~/.config/bspwm/bspwmrc"
-alias visx="nvim ~/.config/sxhkd/sxhkdrc"
-alias vipoly="nvim ~/.config/polybar/config"
+alias vibsp="$EDITOR ~/.config/bspwm/bspwmrc"
+alias visx="$EDITOR ~/.config/sxhkd/sxhkdrc"
+alias vipoly="$EDITOR ~/.config/polybar/config"
 
 #mpd
 alias music="./mpd.sh"
+alias ncu="ncmpcpp-ueberzug"
+#managing git repos
+alias gitt="cd /home/$USER/git/ && git "
+alias repos="cd /home/$USER/git/"
 
 #ps
 alias psa="ps auxf"
@@ -221,23 +239,27 @@ alias skel='[ -d ~/.config ] || mkdir ~/.config && cp -Rf ~/.config ~/.config-ba
 #backup contents of /etc/skel to hidden backup folder in home/user
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 
-#copy bashrc-latest over on bashrc - cb= copy bashrc
-#alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
-#copy /etc/skel/.zshrc over on ~/.zshrc - cb= copy zshrc
-alias cz='sudo cp /etc/skel/.zshrc ~/.zshrc && exec zsh'
+#copy shell configs
+alias cb='cp /etc/skel/.bashrc ~/.bashrc && echo "Copied."'
+alias cz='cp /etc/skel/.zshrc ~/.zshrc && exec zsh'
+alias cf='cp /etc/skel/.config/fish/config.fish ~/.config/fish/config.fish && echo "Copied."'
 
 #switch between bash and zsh
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
+alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 #switch between lightdm and sddm
 alias tolightdm="sudo pacman -S lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings --noconfirm --needed ; sudo systemctl enable lightdm.service -f ; echo 'Lightm is active - reboot now'"
 alias tosddm="sudo pacman -S sddm --noconfirm --needed ; sudo systemctl enable sddm.service -f ; echo 'Sddm is active - reboot now'"
 
-#quickly kill conkies
+# kill commands
+# quickly kill conkies
 alias kc='killall conky'
 # quickly kill polybar
 alias kp='killall polybar'
+# quickly kill picom
+alias kpi='killall picom'
 
 #hardware info --short
 alias hw="hwinfo --short"
@@ -258,10 +280,15 @@ alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pac
 #our experimental - best option for the moment
 alias mirrorx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 5 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
 alias mirrorxx="sudo reflector --age 6 --latest 20  --fastest 20 --threads 20 --sort rate --protocol https --save /etc/pacman.d/mirrorlist"
-alias ram='rate-arch-mirrors'
+alias ram='rate-mirrors --allow-root arch | sudo tee /etc/pacman.d/mirrorlist'
+alias rams='rate-mirrors --allow-root --protocol https arch  | sudo tee /etc/pacman.d/mirrorlist'
 
 #mounting the folder Public for exchange between host and guest on virtualbox
 alias vbm="sudo /usr/local/bin/arcolinux-vbox-share"
+
+#enabling vmware services
+alias start-vmware="sudo systemctl enable --now vmtoolsd.service"
+alias sv="sudo systemctl enable --now vmtoolsd.service"
 
 #shopt
 #shopt -s autocd # change to named directory
@@ -287,6 +314,9 @@ alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
 
 #Cleanup orphaned packages
 alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+
+#clear
+alias clean="clear; seq 1 $(tput cols) | sort -R | sparklines | lolcat"
 
 #search content with ripgrep
 alias rg="rg --sort path"
@@ -383,6 +413,17 @@ ex ()
   fi
 }
 
+#btrfs aliases
+alias btrfsfs="sudo btrfs filesystem df /"
+alias btrfsli="sudo btrfs su li / -t"
+
+#snapper aliases
+alias snapcroot="sudo snapper -c root create-config /"
+alias snapchome="sudo snapper -c home create-config /home"
+alias snapli="sudo snapper list"
+alias snapcr="sudo snapper -c root create"
+alias snapch="sudo snapper -c home create"
+
 #Leftwm aliases
 alias lti="leftwm-theme install"
 alias ltu="leftwm-theme uninstall"
@@ -431,5 +472,8 @@ alias personal='cp -Rf /personal/* ~'
 # install lolcat
 #sfetch | lolcat
 # pfetch
-#neofetch
-cat unix.txt
+neofetch
+
+
+# Created by `pipx` on 2022-02-21 16:51:54
+export PATH="$PATH:/home/pirate/.local/bin"

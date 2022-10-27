@@ -1,0 +1,90 @@
+{
+	"bindings": {
+		"Copy_Link": {
+			"click": 0,
+			"keycombo": [
+				17,
+				81
+			]
+		},
+		"Copy_Raw": {
+			"click": 0,
+			"keycombo": [
+				17,
+				68
+			]
+		},
+		"Delete_Message": {
+			"click": 0,
+			"keycombo": [
+				46
+			]
+		},
+		"Edit_Message": {
+			"click": 1,
+			"keycombo": []
+		},
+		"Pin/Unpin_Message": {
+			"click": 0,
+			"keycombo": [
+				17
+			]
+		},
+		"React_to_Message": {
+			"click": 0,
+			"keycombo": [
+				17,
+				83
+			]
+		},
+		"Reply_to_Message": {
+			"click": 0,
+			"keycombo": [
+				17,
+				72
+			]
+		},
+		"__Note_Message": {
+			"click": 0,
+			"keycombo": [
+				16
+			]
+		},
+		"__Quote_Message": {
+			"click": 0,
+			"keycombo": [
+				17,
+				87
+			]
+		},
+		"__Translate_Message": {
+			"click": 0,
+			"keycombo": [
+				20
+			]
+		}
+	},
+	"settings": {
+		"addHints": true,
+		"clearOnEscape": true,
+		"Edit_Message": true,
+		"Delete_Message": true,
+		"Pin/Unpin_Message": true,
+		"Reply_to_Message": true,
+		"React_to_Message": true,
+		"Copy_Raw": true,
+		"Copy_Link": true,
+		"__Quote_Message": false,
+		"__Note_Message": false,
+		"__Translate_Message": false
+	},
+	"toasts": {
+		"Edit_Message": false,
+		"Delete_Message": true,
+		"Pin/Unpin_Message": true,
+		"Reply_to_Message": true,
+		"React_to_Message": false,
+		"Copy_Raw": true,
+		"Copy_Link": true
+	}
+}

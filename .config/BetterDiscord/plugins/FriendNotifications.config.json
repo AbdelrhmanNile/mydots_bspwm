@@ -1,0 +1,147 @@
+{
+	"amounts": {
+		"toastTime": 5,
+		"checkInterval": 10
+	},
+	"dates": {
+		"logDate": {}
+	},
+	"defaultSettings": {
+		"custom": 1,
+		"dnd": 1,
+		"idle": 1,
+		"listening": 1,
+		"login": 1,
+		"mobile": 1,
+		"offline": 1,
+		"online": 1,
+		"playing": 1,
+		"streaming": 1,
+		"timelog": true
+	},
+	"general": {
+		"addOnlineCount": true,
+		"muteOnDND": false,
+		"openOnClick": true,
+		"showDiscriminator": false
+	},
+	"notificationSounds": {
+		"toastonline": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"desktoponline": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"toastidle": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"desktopidle": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"toastdnd": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"desktopdnd": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"toastplaying": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"desktopplaying": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"toastlistening": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"desktoplistening": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"toaststreaming": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"desktopstreaming": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"toastoffline": {
+			"url": null,
+			"song": null,
+			"mute": false
+		},
+		"desktopoffline": {
+			"url": null,
+			"song": null,
+			"mute": false
+		}
+	},
+	"notificationStrings": {
+		"online": "$user changed status to '$status'",
+		"idle": "$user changed status to '$status'",
+		"dnd": "$user changed status to '$status'",
+		"playing": "$user started playing '$game'",
+		"listening": "$user started listening to '$song'",
+		"streaming": "$user started streaming '$game'",
+		"offline": "$user changed status to '$status'",
+		"login": "$user just logged in '$status'",
+		"custom": "$user changed status to '$custom'"
+	},
+	"observed": {
+		"820702628437557278": {
+			"friends": {
+				"768413924210376714": {
+					"online": 2,
+					"idle": 2,
+					"dnd": 2,
+					"playing": 2,
+					"listening": 2,
+					"streaming": 2,
+					"offline": 2,
+					"login": 2,
+					"mobile": 2,
+					"custom": 2,
+					"timelog": 1,
+					"disabled": false
+				}
+			},
+			"strangers": {
+				"undefined": {
+					"online": 2,
+					"idle": 2,
+					"dnd": 2,
+					"playing": 2,
+					"listening": 2,
+					"streaming": 2,
+					"offline": 2,
+					"login": 2,
+					"mobile": 2,
+					"custom": 2,
+					"timelog": 1,
+					"disabled": false
+				}
+			}
+		}
+	}
+}
